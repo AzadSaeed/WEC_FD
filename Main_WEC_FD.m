@@ -113,13 +113,10 @@ if BatchStudies== 0
 elseif BatchStudies == 1
 
     % Define new batch Studies
-    % DefineBatchStudies(pdata)
+    DefineBatchStudies(pdata)
 
     % Or run ACC cases
     % ACC_Runs(pdata)
-
-    % Run cases for the Upcoming Journal paper
-      J_Runs(pdata)   
 end
 
 
