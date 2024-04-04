@@ -49,12 +49,6 @@ for ii = 1:length(CaseStudies)
         end
 
 
-
-
-        if strcmpi(pdata.HydroFlag,'SM_MBE') || strcmpi(pdata.HydroFlag,'MS_MBE')
-            pdata = LoadALLSMs(pdata,'CMT');
-        end
-
         pdata = RunCases(pdata);
 
         fprintf('Case Study %s with wave type %s passed successfully.\n',pdata.General.CaseStudy,WaveType{1,jj})

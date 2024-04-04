@@ -149,13 +149,6 @@ switch pdata.SimCaseStudy
         % Precribe all problem data and problem settings
         pdata = ProblemOptions(pdata,Regions,pdata.HydroFlag,[],[],[],[],PowerLimit, 'Irregular');
 
-        % Load all surrogate models once-if needed
-        if strcmpi(pdata.HydroFlag,'SM_MBE') || strcmpi(pdata.HydroFlag,'MS_MBE')
-            % 'CMT' or 'Non-CMT'
-            pdata = LoadALLSMs(pdata,'CMT');
-        end
-
-
         pdata.WEC.Radius        = 10;
         pdata.WEC.RD            = 2;
         pdata.WEC.Draft         = pdata.WEC.Radius /pdata.WEC.RD;
@@ -178,12 +171,6 @@ switch pdata.SimCaseStudy
 
         % Precribe all problem data and problem settings
         pdata = ProblemOptions(pdata,Regions,pdata.HydroFlag,[],[],[],[],PowerLimit, 'Irregular');
-
-        % Load all surrogate models once-if needed
-        if strcmpi(pdata.HydroFlag,'SM_MBE') || strcmpi(pdata.HydroFlag,'MS_MBE')
-            % 'CMT' or 'Non-CMT'
-            pdata = LoadALLSMs(pdata,'CMT');
-        end
 
         pdata.WEC.Radius        = 5;
         pdata.WEC.RD            = 10;
@@ -208,12 +195,6 @@ switch pdata.SimCaseStudy
 
         % Precribe all problem data and problem settings
         pdata = ProblemOptions(pdata,Regions,pdata.HydroFlag,[],[],[],[],PowerLimit, 'Irregular');
-
-        % Load all surrogate models once-if needed
-        if strcmpi(pdata.HydroFlag,'SM_MBE') || strcmpi(pdata.HydroFlag,'MS_MBE')
-            % 'CMT' or 'Non-CMT'
-            pdata = LoadALLSMs(pdata,'CMT');
-        end
 
         pdata.WEC.Radius        = 3.59947702216808;
         pdata.WEC.RD            = 6.95077708704819;
@@ -242,11 +223,6 @@ switch pdata.SimCaseStudy
         % Precribe all problem data and problem settings
         pdata = ProblemOptions(pdata,Regions,pdata.HydroFlag,[],[],[],[],PowerLimit, 'Irregular');
 
-        % Load all surrogate models once-if needed
-        if strcmpi(pdata.HydroFlag,'SM_MBE') || strcmpi(pdata.HydroFlag,'MS_MBE')
-            % 'CMT' or 'Non-CMT'
-            pdata = LoadALLSMs(pdata,'CMT');
-        end
 
         n1 = 2;
         n2 = 3;
@@ -288,13 +264,7 @@ switch pdata.SimCaseStudy
         pdata = ProblemOptions(pdata,Regions,pdata.HydroFlag,[],[],[],[],PowerLimit, 'Irregular');
         pdata.Opt.CtrlFlag  = 'Farm';
 
-        % Load all surrogate models once-if needed
-        if strcmpi(pdata.HydroFlag,'SM_MBE') || strcmpi(pdata.HydroFlag,'MS_MBE')
-            % 'CMT' or 'Non-CMT'
-            pdata = LoadALLSMs(pdata,'CMT');
-        end
-
-         pdata.General.plotflag = 0;
+        pdata.General.plotflag = 0;
 
 
         switch pdata.General.run_case
@@ -544,13 +514,6 @@ switch pdata.SimCaseStudy
             % Precribe all problem data and problem settings
             pdata = ProblemOptions(pdata,Regions,pdata.HydroFlag,[],[],[],[],PowerLimit, 'Irregular');
             pdata.Opt.CtrlFlag  = 'Farm';
-
-
-            % Load all surrogate models once-if needed
-            if strcmpi(pdata.HydroFlag,'SM_MBE') || strcmpi(pdata.HydroFlag,'MS_MBE')
-                % 'CMT' or 'Non-CMT'
-                pdata = LoadALLSMs(pdata,'CMT');
-            end
 
             
             Location = Regions;

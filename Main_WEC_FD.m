@@ -99,12 +99,7 @@ if BatchStudies== 0
         % Precribe all problem data and problem settings
         pdata = ProblemOptions(pdata,Regions,Hydro,Ctrl,IP, Location_Flag{1,1},Solver{1,1},PowerLimit, 'Regular');
 
-        % Load all surrogate models once-if needed
-        if strcmpi(pdata.HydroFlag,'SM_MBE') || strcmpi(pdata.HydroFlag,'MS_MBE')
-            % 'CMT' or 'Non-CMT'
-            pdata = LoadALLSMs(pdata,'CMT');
-        end
-
+        % Run problem
         pdata = RunCases(pdata);
 
     end

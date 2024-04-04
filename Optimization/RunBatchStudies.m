@@ -24,13 +24,7 @@ for ii = 1:length(Regions)
                                     Location_Flag{1,nn}, Solver{1,oo},... ...
                                     PowerLimit{1,pp},WaveType{1,qq});
 
-                                % Load all surrogate models once-if needed
-                                if strcmpi(pdata.HydroFlag,'SM_MBE') || ...
-                                        strcmpi(pdata.HydroFlag,'MS_MBE')
-                                    % 'CMT' or 'Non-CMT'
-                                    pdata = LoadALLSMs(pdata,'CMT');
-                                end
-
+                                % Solve Problem
                                 pdata = RunCases(pdata);
 
                                 close all;

@@ -62,12 +62,6 @@ for ii = 1:length(Regions)
 
                                 end
 
-                                % Load all surrogate models once-if needed
-                                if strcmpi(pdata.HydroFlag,'SM_MBE') || ...
-                                        strcmpi(pdata.HydroFlag,'MS_MBE')
-                                    % 'CMT' or 'Non-CMT'
-                                    pdata = LoadALLSMs(pdata,'CMT');
-                                end
 
                                 pdata = RunCases(pdata);
 

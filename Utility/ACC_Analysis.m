@@ -54,13 +54,7 @@ for ii = 1:length(CaseStudies)
         pdata = ProblemOptions(pdata,Regions,pdata.HydroFlag,...
             sol.pdata.Opt.CtrlFlag,15,[],sol.pdata.Opt.Algorithm,PowerLimit,...
             'Irregular');
-
-        % Load all surrogate models once-if needed
-        if strcmpi(pdata.HydroFlag,'SM_MBE') || strcmpi(pdata.HydroFlag,'MS_MBE')
-            % 'CMT' or 'Non-CMT'
-            pdata = LoadALLSMs(pdata,'CMT');
-        end
-       
+  
 
         % Update directories 
         pdata.General.Solution_dir = strcat(pdata.General.pathstr,filesep,'Solution',filesep, 'ACC', filesep, CaseStudy, filesep, 'Analysis');
