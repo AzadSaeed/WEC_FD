@@ -1,6 +1,9 @@
+*.log
 *.asv
 **/include
 **/Solution
 Tests.txt
 J_Runs.m
 Todo.txt
+SurrogateModels/Models_unscaledInput
+SurrogateModels/Models_unscaledInput.zip

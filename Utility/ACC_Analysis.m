@@ -22,7 +22,8 @@ clear; clc; close all;
 pdata = EstablishDirectory;
 
 % Case Study to run/load
-CaseStudies = {'CaseStudyI','CaseStudyII','CaseStudyIII'};
+% CaseStudies = {'CaseStudyI','CaseStudyII','CaseStudyIII'};
+CaseStudies = {'CaseStudyII'};
 Locations = {'AlaskaCoasts','EastCoast','PacificIslands','WestCoast'};
 Method = 'Simulations';
 
@@ -81,7 +82,7 @@ for ii = 1:length(CaseStudies)
                 farm_limits_y = [sol.pdata.Opt.lbl(2,1), sol.pdata.Opt.ubl(2,1)];
 
                 % Number of random layouts to generate
-                N_l = 5500;
+                N_l = 2500;
 
                 % Prescribe Radius
                 pdata.WEC.Radius  = sol.pdata.Results.Radius;
@@ -168,7 +169,8 @@ for ii = 1:length(CaseStudies)
                 t1 = tic;
 
                 % Perform simulation
-                for i = 1:N_l
+                nw = 3;
+                parfor (i = 1:N_l,nw)
 
                     % Broadcast variable
                     P_DATA               = pdata;
@@ -207,7 +209,7 @@ for ii = 1:length(CaseStudies)
                 pdata.Results.Power = Power;
                 pdata.Results.Obj = Obj;
 
-                savename = strcat(pdata.General.Solution_dir,filesep,'Analysis');
+                savename = strcat(pdata.General.Solution_dir,filesep,'Analysis_',Loc);
                 save(savename,'pdata')
 
 
@@ -269,14 +271,14 @@ switch upper(CaseStudy)
     case 'CASESTUDYII'
 
         sol_dir = strcat(pdata.General.pathstr,filesep, 'Solution', filesep,...
-            'ACC', filesep, CaseStudy,filesep, 'SM_MBE',  filesep, Loc, ...
-            filesep,'Solution_GA_LP_opt_500_SM_MBE_rng_15_Plim_None');
+            'ACC', filesep, CaseStudy,filesep, Loc, ...
+            filesep,'Solution_GA_PCL_opt_50_SM_MBE_Farm_rng_15_Plim_None');
 
     case 'CASESTUDYIII'
 
         sol_dir = strcat(pdata.General.pathstr,filesep, 'Solution', filesep,...
-            'ACC', filesep, CaseStudy,filesep, 'SM_MBE',  filesep, Loc, ...
-            filesep,'Solution_GA_LP_opt_500_SM_MBE_rng_15_Plim_None');
+            'ACC', filesep, CaseStudy,filesep, Loc, ...
+            filesep,'Solution_GA_PCL_opt_50_SM_MBE_Individual_rng_15_Plim_None');
 end
 
 
